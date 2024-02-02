@@ -10,10 +10,13 @@
 
 </footer>
 
+</div>
+
 <!-- importa o javaScript do tema-->
 <script src="assets/js/global.js"></script>
 
-</div>
+<!-- Importa o JavaScript específico desta página -->
+<script src="assets/js/<?php echo $page["js"] ?>"></script>
 
 </body>
 

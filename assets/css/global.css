@@ -163,12 +163,14 @@ main article, main aside {
 
 main article {
     background-color: rgba(255, 255, 255, .9);
-    
+    flex-grow: 1;
 }
 
 main aside {
     background-color: rgba(226, 226, 226, 0.9);
+    min-height: 5rem;
 }
+
 
 /* Rodapé (footer) */
 footer {
@@ -222,15 +224,11 @@ Telas de 768px ou mais...
         flex-direction: row;
     }
 
-   
-    main article {
-        flex-grow: 1;
-    }
-
     main aside {
        min-width: 14rem;
        min-width: 14rem;
     }
+    
     /* Cabeçalho */
     header {
         flex-direction: row;
@@ -239,6 +237,8 @@ Telas de 768px ou mais...
 
     .header-search form {
     display: flex;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
     }
 
     .header-search form input {
