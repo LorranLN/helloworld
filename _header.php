@@ -7,6 +7,7 @@
     <!-- Insere o link das folhas de estilo do tema-->
     <link rel="stylesheet" href="assets/css/global.css">
     <link rel="stylesheet" href="assets/css/<?php echo $page["css"] ?>">
+    <link rel="shortcut icon" href="assets/img/logo02.png">
     <title>Hello Word <?php echo $page["title"] ?></title>
 </head>
 
@@ -22,7 +23,7 @@
                 </a>
                 <!-- Titulo Exemplo 1-->
                 <div class="header-title">
-                    <h1><?php echo $page["header_title"] ?></h1>
+                    <h1><?php echo $page["title"] ?></h1>
                     <small><?php echo $site["slogan"] ?></small>
                 </div>
             </div>
