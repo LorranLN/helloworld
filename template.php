@@ -8,9 +8,6 @@ $page = array(
     "title" => "- Lendo e Entendendo", // Título desta página
     "css" => "index.css", // Folha de estilos desta página
     "js" => "index.js", // JavaScript desta página
-    "header_title" => "Olá Mundo",
-    "header_slogan" => "De volta às fronteiras",
-    "header_logo" => "logo01 - Copia.png",
 );
 
 // Folha de estilos da página
