@@ -22,7 +22,7 @@ if($id < 1) header('Location: 404.php');
 $sql = <<<SQL
 
 SELECT
-
+  
  	-- Obtém os campos de article necessários
  	art_id, art_title, art_content,
     
@@ -38,7 +38,7 @@ SELECT
     
     -- Obtém a idade do employee em anos
     -- Referências: https://www.w3schools.com/sql/func_mysql_timediff.asp
-    TIMESTAMPDIFF(YEAR, emp_birth, CURDATE()) as emp_age 
+    TIMESTAMPDIFF(YEAR, emp_birth, CURDATE()) AS emp_age 
 
 -- Tabela original
 FROM `article`
@@ -55,8 +55,10 @@ WHERE art_id = '{$id}'
     
     -- O artigo deve estar online
     AND art_status = 'on';
-
 SQL;
+
+// //
+
 
 // Executa o SQL
 $res = $conn->query($sql);
@@ -70,8 +72,6 @@ $art = $res->fetch_assoc();
 // Altera o título da página
 $page['title'] = $art['art_title'];
 
-// debug($art);
-
 // Gera a view para o usuário
 $article = <<<ART
 
@@ -83,12 +83,29 @@ $article = <<<ART
 
 ART;
 
+// Atualiza as visualizações do artigo
+$sql = <<<SQL
+UPDATE article 
+    SET art_views = art_views + 1 
+WHERE art_id = '{$id}';
+SQL;
+$conn->query($sql);
+
+// variável que exibe os dados do author
+$emp_age = <<<AUTHOR
+<img src="{$art['emp_photo']}" alt="{$art['emp_name']}">
+<h4> {$art['emp_name']} </h4>
+<h5> {$art['emp_age']} anos</h5>
+AUTHOR;
+
+
+
 // Inclui o cabeçalho do documento
 require('_header.php');
 ?>
 
 <article><?php echo $article ?></article>
 
-<aside></aside>
+<aside><?php echo $emp_age ?></aside>
 
 <?php require('_footer.php') ?>

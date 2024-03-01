@@ -23,7 +23,7 @@
                 </a>
                 <!-- Titulo Exemplo 1-->
                 <div class="header-title">
-                    <h1><?php echo $page["title"] ?></h1>
+                    <h1><?php echo $site["sitename"] ?></h1>
                     <small><?php echo $site["slogan"] ?></small>
                 </div>
             </div>
