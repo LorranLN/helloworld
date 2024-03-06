@@ -1,4 +1,5 @@
 
+
 <?php 
 
 // Carrega configurações globais
@@ -10,8 +11,7 @@ $page = array(
     "js" => "index.js", // JavaScript desta página
 );
 
-// Folha de estilos da página
-    $page_css;
+
 
 // Inclui o cabeçalho do documento
     require("_header.php");
