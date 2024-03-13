@@ -91,7 +91,7 @@ $res = $conn->query($sql);
 $aside_viewed = '<div class="viewed">';
 
 // Loop para obter cada registro
-while ($mv = $res->fetch_assoc()) {
+while ($mv = $res->fetch_assoc()) :
 
     // Cria uma variável '$art_summary' para o resumo
     $art_summary = $mv['art_summary'];
@@ -108,16 +108,19 @@ while ($mv = $res->fetch_assoc()) {
             $site['summary_length']     // Tamanho do corte
         ) . "...";                      // Concatena reticências no final
 
+    // Monta a view HTML
     $aside_viewed .= <<<HTML
 
 <div onclick="location.href = 'view.php?id={$mv['art_id']}'">
     <img src="{$mv['art_thumbnail']}" alt="{$mv['art_title']}">
-    <h4>{$mv['art_title']}</h4>
-    <p title="{$mv['art_summary']}">{$art_summary}</p>
+    <div>
+    <h5>{$mv['art_title']}</h5>
+    <p><small title="{$mv['art_summary']}">{$art_summary}</small></p>
+    </div>
 </div>
 
 HTML;
-}
+endwhile;
 
 $aside_viewed .= '</div>';
 
