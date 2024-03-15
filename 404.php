@@ -6,8 +6,7 @@ require("_global.php");
 // Configurações desta página
 $page = array(
     "title" => "Erro 404", // Título desta página
-    "css" => "index.css",            // Folha de estilos desta página
-    "js" => "404.js",              // JavaScript desta página
+    "css" => "404.css",    // Folha de estilos desta página
 );
 
 // Inclui o cabeçalho do documento
