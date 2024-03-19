@@ -137,6 +137,7 @@ require('_header.php');
 <aside>
     <h3>Artigos + vistos</h3>
     <?php echo $aside_viewed ?>
+    <h3>Artigos + comentados</h3>
 </aside>
 
 <?php require('_footer.php') ?>

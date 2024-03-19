@@ -3,14 +3,13 @@
  * Copie aqui as suas prórias chaves do Firebase.
  **/
 const firebaseConfig = {
-    apiKey: "AIzaSyB_Dk7S89N7wQk_o3cntUH5-7v2IWd_P8Q",
-    authDomain: "hellowordblog.firebaseapp.com",
-    databaseURL: "https://hellowordblog-default-rtdb.firebaseio.com",
-    projectId: "hellowordblog",
-    storageBucket: "hellowordblog.appspot.com",
-    messagingSenderId: "238708085735",
-    appId: "1:238708085735:web:8c7fdcd4b63159275fe342"
-};
+    apiKey: "AIzaSyBfvzyH32vL-KvWcN477DC9wl9NmAGl16k",
+    authDomain: "blog-helloword-e57e5.firebaseapp.com",
+    projectId: "blog-helloword-e57e5",
+    storageBucket: "blog-helloword-e57e5.appspot.com",
+    messagingSenderId: "651153026836",
+    appId: "1:651153026836:web:e26351e7f7854c9aa5dc01"
+  };
 
 // Inicializa o Firebase
 firebase.initializeApp(firebaseConfig);
@@ -36,6 +35,12 @@ firebase.auth().onAuthStateChanged((user) => {
         notLogged();
     }
 });
+
+// Evita o reenvio dos formulários ao atualizar a página
+if (window.history.replaceState) {
+    window.history.replaceState(null, null, window.location.href);
+}
+
 
 // Função que trata o usuário logado
 function isLogged(user) {
