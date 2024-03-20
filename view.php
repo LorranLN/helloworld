@@ -110,7 +110,7 @@ $aside_author = <<<HTML
 
 <div class="aside-author">
     <img src="{$art['emp_photo']}" alt="{$art['emp_name']}">
-    <h4>{$art['emp_name']}</h4>
+    <h4>{$art['emp_name']} </h4>
     <ul>
         <li>{$art['emp_age']} anos</li>    
         <li>Colaborador desde {$art['emp_datebr']} como {$emp_type}.</li>
@@ -148,7 +148,10 @@ SQL;
 $res = $conn->query($sql);
 
 // Inicializa a view
-$aside_articles = '<h4>+ Artigos</h4><div class="aside_article">' . "\n";
+$aside_articles =  <<<HTML
+'<h4>+ Artigos de echo  </h4><div class="aside_article">' . "\n"; 
+HTML;
+
 
 // Loop da view
 while ($aart = $res->fetch_assoc()) :

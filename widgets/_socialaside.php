@@ -7,6 +7,10 @@
  * As folhas de estilo estão em 'assets/css/global.css'.
  **/
 
+$sql = <<<SQL
+
+SQL;
+
 $aside_social = <<<HTML
 
 <h3>+ Contatos</h3>

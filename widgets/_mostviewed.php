@@ -11,11 +11,30 @@ LIMIT {$num_list};
 
 SQL;
 
+//Obtém uma lista dos artigos mais comentados
+
+$sql = <<<SQL
+SELECT 
+    cmt_article, 
+    art_title, art_summary, 
+    COUNT(*) AS total_comments
+FROM comment
+    INNER JOIN article ON cmt_article = art_id
+WHERE cmt_status = 'on'
+GROUP BY cmt_article
+ORDER BY total_comments DESC
+LIMIT 3;
+
+SQL;
+
 // Executa a query e armazena os resultados em '$res'
 $res = $conn->query($sql);
 
 // Variável acumuladora. Armazena cada um dos artigos.
 $aside_viewed = '<h3>Artigos + vistos</h3><div class="viewed">';
+
+// Variável acumuladora. Armazena cada um dos comentários.
+$view_comments = '<h3>Artigos + comentados</h3><div class="viewed">';
 
 // Loop para obter cada registro
 while ($mv = $res->fetch_assoc()) :
@@ -47,7 +66,21 @@ while ($mv = $res->fetch_assoc()) :
 </div>
 
 HTML;
+
+// Monta a view_comments
+$view_comments .= <<<HTML
+
+<div onclick="location.href = 'view.php?id={$mv['art_id']}'">
+    <img src="{$mv['art_thumbnail']}" alt="{$mv['art_title']}">
+    <div>
+        <h5>{$mv['art_title']}</h5>
+        <p><small title="{$mv['art_summary']}">{$art_summary}</small></p>
+    </div>
+</div>
+
+HTML;
 endwhile;
+
 
 $aside_viewed .= '</div>';
 
