@@ -74,7 +74,7 @@ $article = <<<ART
 
 <div class="article">
     <h2>{$art['art_title']}</h2>
-    <small>Por {$art['emp_name']} em {$art['art_datebr']}.</small>
+    <small>Por class="authordate">Por {$art['emp_name']} em {$art['art_datebr']}.</small>
     <div>{$art['art_content']}</div>
 </div>
 
@@ -119,6 +119,14 @@ $aside_author = <<<HTML
 
 HTML;
 
+
+//* *//
+$NameAuthor = <<<HTML
+<h4>{$art['emp_name']} </h4>
+
+HTML;
+
+
 // Obtém outros artigos do autor
 $sql = <<<SQL
 
@@ -147,9 +155,9 @@ LIMIT 3;
 SQL;
 $res = $conn->query($sql);
 
-// Inicializa a view
+// Inicializa a view NameAuthor
 $aside_articles =  <<<HTML
-'<h4>+ Artigos de echo  </h4><div class="aside_article">' . "\n"; 
+<h4>+ Artigos de  <?php echo $NameAuthor </h4><div class="aside_article"> 
 HTML;
 
 
