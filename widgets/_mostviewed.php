@@ -26,7 +26,6 @@ $res = $conn->query($sql);
 
 // Variável acumuladora. Armazena cada um dos artigos.
 $aside_viewed = '<h3>Artigos + vistos</h3><div class="viewed">';
-
 // Loop para obter cada registro
 while ($mv = $res->fetch_assoc()) :
 

@@ -123,7 +123,16 @@ require('_header.php');
     ?>
 </article>
 
-<aside></aside>
+<aside> 
+    
+<?php 
+    // Mostra os artigos mais visualizados
+    require('widgets/_mostviewed.php');
+    $aside_viewSearch;
+    // Mostra os artigos mais comentados
+    require('widgets/mostcommented.php');
+    ?>
+</aside>
 
 <?php
 // Inclui o rodapé do documento
