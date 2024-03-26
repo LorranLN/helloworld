@@ -81,7 +81,10 @@ word-break: break-word !important;
     <P><a href="about.php">Sobre</a></P>
     <div>
         <h2>Faça Contatos</h2>
-        <a href="contacts.php">Contatos</a>
+      <?php
+    // Lista de redes sociais
+    require('widgets/_socialaside.php');
+    ?>
     </div>
 </aside>
 
